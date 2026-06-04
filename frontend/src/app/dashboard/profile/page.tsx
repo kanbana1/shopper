@@ -24,7 +24,11 @@ export default function ProfilePage() {
     if (!name.trim()) { toast.error('El nombre no puede estar vacío'); return; }
     setSavingInfo(true);
     try {
+<<<<<<< HEAD
       await api.put('/users/me', { name });
+=======
+      await api.patch('/users/me', { name });
+>>>>>>> 18b765f5aa403ac0380dccca6892c5c99a22a0b6
       setAuth({ ...user, name }, useAuthStore.getState().accessToken ?? '', useAuthStore.getState().refreshToken ?? '');
       setSavedInfo(true); setTimeout(() => setSavedInfo(false), 2000);
       toast.success('Perfil actualizado');
@@ -36,7 +40,11 @@ export default function ProfilePage() {
     if (newPwd.length < 6)      { toast.error('Mínimo 6 caracteres');          return; }
     setSavingPwd(true);
     try {
+<<<<<<< HEAD
       await api.put('/users/me/password', { current: currentPwd, newPassword: newPwd });
+=======
+      await api.patch('/auth/change-password', { currentPassword: currentPwd, newPassword: newPwd });
+>>>>>>> 18b765f5aa403ac0380dccca6892c5c99a22a0b6
       setCurrentPwd(''); setNewPwd('');
       toast.success('Contraseña actualizada');
     } catch (e: any) { toast.error(e?.response?.data?.message ?? 'Error al cambiar contraseña'); }

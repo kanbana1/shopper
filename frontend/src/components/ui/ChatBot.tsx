@@ -21,8 +21,22 @@ const QUICK_QUESTIONS = [
   { icon: Store,        q: '¿Cuánto cuesta vender en Shopper?'       },
 ];
 
+<<<<<<< HEAD
 function formatMessage(text: string) {
   return text
+=======
+function escapeHtml(str: string) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function formatMessage(text: string) {
+  return escapeHtml(text)
+>>>>>>> 18b765f5aa403ac0380dccca6892c5c99a22a0b6
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.*?)\*/g,     '<em>$1</em>')
     .replace(/`(.*?)`/g,       '<code class="bg-[var(--surface-3)] px-1 py-0.5 rounded text-xs font-mono">$1</code>')

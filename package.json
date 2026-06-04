@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+<<<<<<< HEAD
     "dev":            "concurrently -n BACK,FRONT -c cyan.bold,magenta.bold \"npm run dev:backend\" \"npm run dev:frontend\"",
     "dev:backend":    "npm --prefix backend run start:dev",
     "dev:frontend":   "npm --prefix frontend run dev",
@@ -15,5 +16,14 @@
   },
   "devDependencies": {
     "concurrently": "^9.2.1"
+=======
+    "dev": "concurrently --names \"BACK,FRONT\" --prefix-colors \"cyan,magenta\" \"npm run dev:back\" \"npm run dev:front\"",
+    "dev:back": "cd backend && npm run start:dev",
+    "dev:front": "cd frontend && npm run dev",
+    "install:all": "cd backend && npm install && cd ../frontend && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+>>>>>>> 18b765f5aa403ac0380dccca6892c5c99a22a0b6
   }
 }

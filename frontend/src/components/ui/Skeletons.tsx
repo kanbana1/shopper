@@ -5,11 +5,17 @@
    Tema claro: gradiente gris sobre blanco
 ═══════════════════════════════════════════════════════════════════ */
 
+<<<<<<< HEAD
 import { motion } from 'framer-motion';
 
 // ── Base skeleton pulse ───────────────────────────────────────────
 function Bone({ className = '' }: { className?: string }) {
   return <div className={`skeleton rounded-lg ${className}`} />;
+=======
+// ── Base skeleton pulse ───────────────────────────────────────────
+function Bone({ className = '', style }: { className?: string; style?: React.CSSProperties }) {
+  return <div className={`skeleton rounded-lg ${className}`} style={style} />;
+>>>>>>> 18b765f5aa403ac0380dccca6892c5c99a22a0b6
 }
 
 // ── Shimmer effect wrapper ────────────────────────────────────────
@@ -80,7 +86,11 @@ export function SkeletonChart() {
       <div className="flex items-end gap-2 h-40 mt-4">
         {[70, 45, 90, 55, 80, 35, 65].map((h, i) => (
           <div key={i} className="flex-1 flex items-end">
+<<<<<<< HEAD
             <Bone className="w-full rounded-t-lg" style={{ height: `${h}%` } as React.CSSProperties} />
+=======
+            <Bone className="w-full rounded-t-lg" style={{ height: `${h}%` }} />
+>>>>>>> 18b765f5aa403ac0380dccca6892c5c99a22a0b6
           </div>
         ))}
       </div>

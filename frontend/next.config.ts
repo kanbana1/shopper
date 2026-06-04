@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+<<<<<<< HEAD
   // ── Imágenes permitidas ─────────────────────────────────
   images: {
     remotePatterns: [
@@ -15,6 +16,25 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 86400,
   },
 
+=======
+  // ── Salida standalone para Docker (server.js minimal) ───
+  output: 'standalone',
+
+  // ── Imágenes permitidas ─────────────────────────────────
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: 'res.cloudinary.com'     },
+      { protocol: 'https', hostname: 'images.unsplash.com'    },
+      { protocol: 'https', hostname: 'lh3.googleusercontent.com' },
+      { protocol: 'https', hostname: 'platform-lookaside.fbsbx.com' },
+      { protocol: 'https', hostname: '**.amazonaws.com'       },
+      { protocol: 'http',  hostname: 'localhost'              },
+    ],
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 86400,
+  },
+
+>>>>>>> 18b765f5aa403ac0380dccca6892c5c99a22a0b6
   // ── Headers de seguridad HTTP ───────────────────────────
   async headers() {
     return [

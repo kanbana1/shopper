@@ -28,7 +28,11 @@ function ModalProducto({ prod, tiendas, storeId, onClose, onSaved }: { prod:Part
     setSaving(true);
     try {
       const body = { title, description:desc, price:parseFloat(price), stock:parseInt(stock), sku, images: imgUrl ? [imgUrl] : [] };
+<<<<<<< HEAD
       if (prod?._id) await api.put(`/stores/${store}/products/${prod._id}`, body);
+=======
+      if (prod?._id) await api.patch(`/stores/${store}/products/${prod._id}`, body);
+>>>>>>> 18b765f5aa403ac0380dccca6892c5c99a22a0b6
       else           await api.post(`/stores/${store}/products`, body);
       toast.success(prod?._id ? 'Producto actualizado' : 'Producto creado');
       onSaved(); onClose();
@@ -117,7 +121,11 @@ export default function OwnerProductsPage() {
 
   const toggleActive = async (p: Producto & {storeName:string}) => {
     try {
+<<<<<<< HEAD
       await api.put(`/stores/${p.store_id}/products/${p._id}`, { is_active: !p.is_active });
+=======
+      await api.patch(`/stores/${p.store_id}/products/${p._id}`, { is_active: !p.is_active });
+>>>>>>> 18b765f5aa403ac0380dccca6892c5c99a22a0b6
       toast.success(p.is_active ? 'Producto ocultado' : 'Producto activado');
       cargar();
     } catch { toast.error('Error al actualizar'); }
